@@ -1,22 +1,25 @@
 # Example of how to set up your demo for workflow orchestration with MWAA
 
 
-First, we need to give our MWAA instance permissions to be able to run SagMaker tasks for us. 
+First, we need to give our MWAA instance permissions to be able to run SagMaker tasks. 
 Go to the IAM Console - Roles (https://console.aws.amazon.com/iam/home?#/roles)
 
 * Search for the Airflow Instance role, which looks similar to AmazonMWAA-airflow-xxxx-instance-xxxx
 * First Edit the JSON of the attached policy and add
 
+```
+{
 "Effect": "Allow",
 "Action": "iam:GetRole",
 "Resource": "*"
-},
+}
+```
 
 * Then attach the following permissions to the Airflow Instance role
 * *AmazonS3FullAccess*
 * *AmazonSageMakerFullAccess*
 
-Next, we will create a SageMaker service role to be used in the ML pipeline module. To create an IAM role for Amazon SageMaker
+Next, we will create a SageMaker service role to be used in the ML pipeline module. 
 
 * Go to the IAM Console - Roles (https://console.aws.amazon.com/iam/home?#/roles)
 * Choose *Create role*
