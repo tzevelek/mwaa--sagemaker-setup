@@ -1,4 +1,4 @@
-# Example of how to set up your demo for workflow orchestration with MWAA
+# Instructions on how to set up the IAM roles and permissions
 
 
 First, we need to give our MWAA instance permissions to be able to run SagMaker tasks. 
